@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    
+    <title>Lelo</title>
+</head>
+<body style="background-color: #2496ed;">
+    <div id="wybierzPokoj">
+        <input id="numerPokoju" type="text" value="pokoj<%=uczen%><%=nauczyciel%>" hidden>
+        <button id="idzDoPokoju" style="width: 100%; height: 100%;">Go</button>
+    </div>
+    <h2 style="text-align: center; color: white;">Wideokonferencja</h2>
+    <div id="poczekalnia" style="display:none;">
+        <h2 id="Imie"></h2>
+        <a class="nav-link" href="/zajecia" style="color: white !important; border-radius: 25px; padding-left: 5%;">Wyjście z zajęć</a>
+        <p style="padding-bottom: 2%;">
+            <input id="wpiszImie" type="text" hidden/>
+            <button id="ustawImie" hidden>Ustaw</button>
+        </p>
+        <div class="obramowanie" style=" padding:2%; margin:0% 5%; background-color: white;">
+        <video id="zdalneVideo" style="width: 60%; height: 50%;border:ridge;  margin-left: 15%; margin-right: 2%;" autoplay></video>
+        <video id="lokalneVideo" muted="muted" style="width:12%; height: 12%;border:ridge; background-color: black;" autoplay></video> <br>
+        <div style="display:inline-block; padding-left:43%; padding-top: 2%;">
+            <tr class="wiersz">
+                <td>
+                    <i class="fas fa-microphone" id="mikrofon" onclick="wycisz()" style="width: 3%; height: 3%; padding-right: 3%; color:#6495ED"></i>
+                </td>
+                <td>
+                    <i class="fas fa-video" id="ekran" onclick="zamknij()" style="width: 3%; height: 3%; color:#6495ED"></i>
+                </td>
+            </tr>
+                
+        </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js/"></script>
+    <script src="./scripts/webrtc.js"></script>
+</body>

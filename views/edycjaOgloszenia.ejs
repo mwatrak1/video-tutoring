@@ -1,0 +1,24 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+
+<div class="edycjaProfilu">
+    <form class="dodajOgloszenie" action="/edycjaOgloszenia" method="POST">
+  
+<% daneOgloszenia.forEach(element =>{ %>
+    <div class="form-group col-md-6">
+        <label for="opis">Opis: </label>
+        <textarea class="form-control" style="height: 300px ;" id="opis" value="<%=element.opis%>" name="opis"></textarea>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="cena">Cena: </label>
+        <input class="form-control" id="cena" name="cena" value="<%=element.cena%>">
+    </div>
+<% }) %>
+        <button class="btn btn-primary edycjaOgloszeniaPrzycisk" name="idogloszenia" value="<%=edytowaneOgloszenie%>">Zastosuj zmiany</button>
+    </form>
+</div>
+
+<script src="./../scripts/edycjaProfilu.js"></script>
+
+<%- include("komponenty/footer") -%> 

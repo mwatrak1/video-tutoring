@@ -1,0 +1,34 @@
+<%- include("komponenty/header") -%>
+</head>
+
+<%- include("komponenty/nawigacja") -%>
+<div class="card" style="background:#2496ed;">
+    <article class="card-body" style="padding-top:7%; padding-bottom: 11%;">
+        <div class="registration-form" style="max-width: 70%;">  
+        
+            <div class="list-group" style="padding:3% 3%;">
+    <div class="col-12"><h5><%=temat.tytul_tematu %></h5>
+        <div style="font-weight: bold;"><%=temat.data_wstawienia %></div>
+    <div class="kolor_tla"><%=temat.tresc %>
+    </div></div>
+
+    <div class="col-12" style="text-align: center;" ><h5>Lista odpowiedzi</h5></div>
+    <% odpowiedz.forEach(odpowiedz =>{ %>
+        <div class="col-12"><div style="font-weight: bold;">Wysłano: <%=odpowiedz.data_wpisu %> </div>
+        <div class="kolor_tla"><%=odpowiedz.tresc%></div>
+        </div>
+    <% }) %>
+
+            <label>
+                <div class="col-12" style="text-align: center;" > <h5>Odpowiedz:</h5> </div>
+            </label>
+            <textarea class="form-control" id="answer" cols="5" rows="3"></textarea> 
+        </div>
+        <button class="btn btn-primary" style="margin-left: 45%;" id="idtematu" value="<%=temat.idtemat%>" type="submit" onclick="dodajPost()">Opublikuj</button>
+        
+        </div>
+</article>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="../../scripts/dodajPost.js" data-bundle="plone-base"></script>
+<%- include("komponenty/footer") %>    

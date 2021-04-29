@@ -1,0 +1,98 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+
+
+
+<div class="card" style="background:#2496ed; padding-bottom: 10%;">
+    
+    <div class="area" >
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+    <article class="card-body mx-auto" style="max-width:400px; padding: 7% 0%; background:#2496ed; padding-bottom: 10%;">
+        
+    <div class="registration-form">
+        
+    <div class="form-icon" >
+            <span><i class="fas fa-user"></i></span>
+    </div>
+        <h4 class="card-title mt-3 text center" style="text-align:center;"> Załóż konto </h4>
+        <form action="/rejestracja" method="POST">
+            
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i></span>
+            </div>
+            <input name="nazwa_uzytkownika" class="form-control" placeholder="Nazwa użytkownika" type="text">
+            
+        </div>
+        
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i></span>
+            </div>
+            <input name="email" class="form-control" placeholder="E-mail" type="email">    
+        </div>
+        <% if(walidacja.emailError) { %>
+            <center><p style="color: red">Bledny adres email</p></center>
+        <% } %>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i></span>
+            </div>
+            <input class="form-control" name="pass1" pattern=".{8,32}" placeholder="Hasło" type="password">
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i></span>
+            </div>
+            <input class="form-control" name="pass2" placeholder="Powtórz hasło" type="password">
+        </div>
+
+        <div class="row">
+        <div class="col-sm-6" style="padding-left: 15%;">
+            <input name="userr" type="radio" value="nauczyciel" checked>
+            Nauczyciel
+        </div>
+        <div class="col-sm-6" style="padding-left: 10%;">
+        <input name="userr" type="radio" value="uczen">
+            Uczeń
+        </div> 
+        </div>
+        
+        <% if(walidacja.nazwaError) { %>
+            <center><p style="color: red">Nazwa użytkownika musi miec od 8 do 32 znaków</p></center> 
+        <% } %>
+        <% if(walidacja.hasloError) { %>
+            <center><p style="color: red">Hasla muszą być identyczne</p></center>
+        <% } %>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block submit-account"> Utwórz konto </button>
+        </div>
+        <p class="text-center"> Masz konto? <a href="/logowanie"> Zaloguj się </a> </p>
+
+    
+        </form>
+        </div>
+            
+    </article>
+</ul>
+</div>
+</div>
+
+
+
+
+
+
+<%- include("komponenty/footer") %> 

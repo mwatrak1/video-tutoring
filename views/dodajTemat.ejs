@@ -1,0 +1,21 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+<div class="nowytemat">
+<form class="" action="/dodajTemat" method="POST">
+    <div class="form-group dodaj-temat">
+        <label>
+            Tytul
+        </label>
+        <input class="form-control tytul-tematu " type="text" name="postTitle">
+        <label>
+            Temat
+        </label>
+        <textarea class="form-control tresc-tematu" name="postBody" cols="5" rows="8"></textarea>
+        
+
+    </div>
+    <button class="btn btn-primary dodaj-temat-przycisk" type="submit" name="idkategorii" value="<%=kategorie%>">Opublikuj</button>
+</form>
+</div>
+<%- include("komponenty/footer") %>  

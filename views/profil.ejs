@@ -1,0 +1,215 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+<div class="mojProfil" style="padding-bottom: 20%;">
+<div class="profil">
+  <ul class="nav nav-pills md-3" id="pills-tab" role="tablist">
+
+    <% if (typ_uzytkownika == "nauczyciel") { %>
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        id="pills-home-tab"
+        data-toggle="pill"
+        href="#pills-home"
+        role="tab"
+        aria-controls="pills-home"
+        aria-selected="true"
+        >Profil</a
+      >
+    </li>
+    
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="pills-profile-tab"
+        data-toggle="pill"
+        href="#pills-profile"
+        role="tab"
+        aria-controls="pills-profile"
+        aria-selected="false"
+        >Moje ogłoszenia</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        id="pills-harmonogram-tab"
+        data-toggle="pill"
+        href="#pills-harmonogram"
+        role="tab"
+        aria-controls="pills-harmonogram"
+        aria-selected="false"
+        >Harmonogram</a
+      >
+    </li>
+    <% }%>
+  </ul>
+</div>
+
+
+<div class="tab-content" id="pills-tabContent">
+  <div
+  class="tab-pane fade show active"
+  id="pills-home"
+  role="tabpanel"
+  aria-labelledby="pills-home-tab"
+  >
+  <% if (mojeOgloszenia.length > 0) { %>
+
+ 
+  <button
+  type="button"
+  onclick="window.location.href='/profil/<%=mojeOgloszenia[0].id%>';"
+  class="btn btn-primary przyciski"
+>
+  Zobacz Profil
+</button>
+
+  <button
+  type="button"
+  onclick="window.location.href='/edycjaProfilu';"
+  class="btn btn-primary przyciski"
+>
+  Edycja Profilu
+</button>
+
+<button
+type="button"
+onclick="window.location.href='/profil/<%=mojeOgloszenia[0].id%>';"
+class="btn btn-primary przyciski"
+>
+Usuń Konto
+</button>
+
+</div>
+<% }  else { %>
+  <button
+  type="button"
+  onclick="window.location.href='/profil/<%=iduzytkownika%>';"
+  class="btn btn-primary przyciski"
+>
+  Zobacz Profil
+</button>
+  
+  <button
+  type="button"
+  onclick="window.location.href='/edycjaProfilu';"
+  class="btn btn-primary przyciski"
+>
+  Edycja Profilu
+</button>
+
+
+</div>
+<% } %>
+
+<div
+    class="tab-pane fade"
+    id="pills-profile"
+    role="tabpanel"
+    aria-labelledby="pills-profile-tab"
+  >
+
+<% if (mojeOgloszenia.length > 0) { %>
+  
+    <button
+      type="button"
+      onclick="window.location.href='/dodaj';"
+      class="btn btn-primary przyciski"
+    >
+      Dodaj ogloszenie
+    </button>
+    
+
+    <div class="list-group mojeOgloszenie">
+    
+      <% mojeOgloszenia.forEach(element => { %>
+      <div class="mojeOgloszenia" id="<%=element.idogloszenia%>">
+        <a
+          href="#"
+          class="list-group-item list-group-item-action flex-column align-items-start "
+        >
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= element.jezyk %></h5>
+            <small><%=element.data_wstawienia %></small>
+          </div>
+          <p class="mb-1"><%= element.opis %></p>
+          <small><%= element.cena %> </small>
+        </a>
+      </div>
+
+      <% }); %>
+    </div>
+    </div>
+    <% }  else { %>
+      <button
+      type="button"
+      onclick="window.location.href='/dodaj';"
+      class="btn btn-primary przyciski"
+    >
+      Dodaj ogloszenie
+    </button>
+  </div>
+    <% } %> 
+
+
+  
+  <div
+    class="tab-pane fade"
+    id="pills-harmonogram"
+    role="tabpanel"
+    aria-labelledby="pills-harmonogram-tab"
+  >
+  <table id="harmonogram">
+    <tr>
+      <th>Lp.</th>
+      <th>Dostępna data</th>
+      <th>Godzina od</th>
+      <th>Godzina do</th>
+      <th>Czas trwania zajęć</th>
+    </tr>
+  </table>
+  <button class="btn btn-primary przyciski" onclick="usunDostepnosc(this)">Usuń dostępność</button>
+  <button class="btn btn-primary przyciski" data-toggle="modal" data-target="#dodajDostepnosc">Dodaj dostepnosc</button>
+  </div>
+
+
+
+<div class="modal fade" id="dodajDostepnosc" tabindex="-1" role="dialog" aria-labelledby="dodajDostepnoscTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dodajDostepnoscLongTitle">Dodaj wpis do harmonogramu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <label for="dzien">Termin zajęć</label>
+          <input type="date" id="dzien" name="dzienZajec"
+            min="<%=min_date%>" max="2021-12-31"></br>
+        <label for="godzinaOd">Dostępność od</label>
+          <input type="time" id="godzinaOd" name="godzinaOd"></br>
+        <label for="godzinaDo">Dostepnosc do</label>
+        <input type="time" id="godzinaDo" name="godzinaDo"></br>
+        <label for="czasTrwania">Czas trwania (min) </label>
+        <input type="number" id="czasTrwania" name="czasTrwania">
+        <div id="message" style="text-align: center;">
+
+        </div>
+      </div></br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" onclick="addAvalibility(this)" class="btn btn-primary">Dodaj</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="./../scripts/harmonogram.js"></script>
+<script src="./../scripts/profil.js"></script>
+<%- include("komponenty/footer") %> 

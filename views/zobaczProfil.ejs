@@ -1,0 +1,215 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+<div
+  class="container-fluid"
+  style="padding: 3% 13%; background-color:#2496ed;" >
+    <div class="list-group-item obramowanie" style = "padding:0% 10%;padding-bottom: 2%; padding-top: 2%;">
+        <div class="row" >
+            <div class="col-sm-3">
+                <% if (profil[0].zdjecie == null){%>
+                        <img
+                        src="https://inzynierkanativespeakerzy.s3.eu-central-1.amazonaws.com/doge.jpg"
+                        class="pull-left photo"
+                        style="border-radius: 50%; width:150px; height:150px;" >
+                <% } else { %>
+                        <img
+                        src="https://inzynierkanativespeakerzy.s3.eu-central-1.amazonaws.com/<%=profil[0].zdjecie%>"
+                        class="pull-left photo"
+                        style="border-radius: 50%; width:150px; height:150px;" >    
+                <% } %>
+            </div>
+            
+                
+                <div class="list-group col-sm-6">
+                
+                    <h3><%= imie_odbiorcy[0].imie%></h3><br>
+                    Znane jezyki: <%=profil[0].znane_jezyki %> </br>
+                    Jezyk ojczysty: <%= profil[0].jezyk_ojczysty %>
+                </div>
+                <div class="list-group col-sm-3">
+                    
+                </div>
+                
+        </div>
+    </div>
+
+        <div class="list-group-item obramowanie">
+            <div class="row"  style = "padding:0% 12%;">
+                <div class="col-12" style="text-align: center;">
+                <h5>O mnie </h5><br>
+                    <%=profil[0].opisProfilu%></br>
+                    <% if (profil[0].film == null){%>
+                        <video class="film_promocyjny" width="320" height="240" controls >
+                            <source src="https://inzynierkanativespeakerzy.s3.eu-central-1.amazonaws.com/Waterfalls+-+47213.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video> 
+                    <% } else { %>
+                        <video class="film_promocyjny" width="320" height="240" controls >
+                            <source src="<%=profil.film%>" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video> 
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+
+<div class="list-group-item obramowanie" style = "padding:0% 10%;padding-bottom: 2%; padding-top: 2%;">
+<!-- Wojtek robi-->
+<%if(idUzytkownika!=zalogowany){%>
+    <%if(przyszle==true){%>
+<form class="" action="/dodajOpinie" method="POST">
+    <div class="form-group">
+        <h5>
+        <div style="color: black; font-weight: bold;" >
+            Opis
+        </div>
+        </h5>
+        <textarea class="form-control" name="Opis" cols="5" rows="5"></textarea>
+        <div class="zobaczProfil">
+            <div class="stars">
+                <input class="form-control" type="radio" id="star5" name="Ocena" value="5">
+                <label class="gwiazdki" for="star5"  style="color: black;">
+                    <!--Pięć gwiazdka-->
+                </label>
+                <input class="form-control" type="radio" id="star4" name="Ocena" value="4">
+                <label class="gwiazdki" for="star4"  style="color: black;">
+                    <!--Cztery gwiazdka-->
+                </label>
+                <input class="form-control" type="radio" id="star3" name="Ocena" value="3">
+                <label class="gwiazdki" for="star3" style="color: black;">
+                    <!--Trzy gwiazdka-->
+                </label>
+                <input class="form-control" type="radio" id="star2" name="Ocena" value="2">
+                <label class="gwiazdki" for="star2" style="color: black;">
+                    <!--Dwa gwiazdka-->
+                </label>
+                <input class="form-control" type="radio" id="star1" name="Ocena" value="1">
+                <label class="gwiazdki" for="star1" style="color: black;">
+                    <!--Jedna gwiazdka-->
+                </label>
+            </div>
+            </div>
+        <input type="hidden" name="idUzytkownika" value="<%=idUzytkownika%>">
+        <input type="hidden" name="autor_opinii" value="<%=autor%>">
+        <input type="hidden" name="imie" value="<%=profil[0].imie%>">
+
+    </div>
+    <button class="btn btn-primary" style="margin-left: 45%;" type="submit" name="buttonOpinie" value="<%=profil[0].odbiorca_opinii%>">Opublikuj</button>
+</form>
+<%}%>
+<%}%>
+</br>
+
+
+        <div class="row" >
+            
+            <div class="list-group-item col-12">
+                <h4 style="font-weight: bold;">Opinie o użytkowniku</h4>
+                <% for (let i=1; i< profil.length; i++) { %>
+                    <div class="col-12"><h5>Opis:</h5> <div class="kolor_tla"><%=profil[i].opisOpinii%></div></div>
+                <div class="col-12" style="display: inline;">
+                        <h6 style="font-weight: bold; display: inline">  Ocena: </h6>
+                        <%if(profil[i].liczba==1){%>
+                            <label class="gwiazdka" for="star1" style="color: black;">
+                                <!--Jedna gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star5"  style="color: black;">
+                                <!--Pięć gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star4"  style="color: black;">
+                                <!--Cztery gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star3" style="color: black;">
+                                <!--Trzy gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star2" style="color: black;">
+                                <!--Dwa gwiazdka-->
+                            </label>
+                        <%} else if(profil[i].liczba==2){%>
+                            <label class="gwiazdka" for="star2" style="color: black;">
+                                <!--Dwa gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star1" style="color: black;">
+                                <!--Jedna gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star5"  style="color: black;">
+                                <!--Pięć gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star4"  style="color: black;">
+                                <!--Cztery gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star3" style="color: black;">
+                                <!--Trzy gwiazdka-->
+                            </label>
+                        <%} else if(profil[i].liczba==3){%>
+                            <label class="gwiazdka" for="star3" style="color: black;">
+                                <!--Trzy gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star2" style="color: black;">
+                                <!--Dwa gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star1" style="color: black;">
+                                <!--Jedna gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star5"  style="color: black;">
+                                <!--Pięć gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star4"  style="color: black;">
+                                <!--Cztery gwiazdka-->
+                            </label>
+                        <%} else if(profil[i].liczba==4){%>
+                            <label class="gwiazdka" for="star4"  style="color: black;">
+                                <!--Cztery gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star3" style="color: black;">
+                                <!--Trzy gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star2" style="color: black;">
+                                <!--Dwa gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star1" style="color: black;">
+                                <!--Jedna gwiazdka-->
+                            </label>
+                            <label class="gwiazdki_stale" for="star5"  style="color: black;">
+                                <!--Pięć gwiazdka-->
+                            </label>
+                            
+                        <%} else if(profil[i].liczba==5){%>
+                            <label class="gwiazdka" for="star5"  style="color: black;">
+                                <!--Pięć gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star4"  style="color: black;">
+                                <!--Cztery gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star3" style="color: black;">
+                                <!--Trzy gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star2" style="color: black;">
+                                <!--Dwa gwiazdka-->
+                            </label>
+                            <label class="gwiazdka" for="star1" style="color: black;">
+                                <!--Jedna gwiazdka-->
+                            </label>
+                        <%}%>
+                        <div class="col-12">
+                            <h6 style="font-weight: bold; display: inline;"> Data:</h6> <%=profil[i].data_wpisu%> <div style="float:right">Wysłano przez: <%=profil[i-1].imie%></div>
+                        </div>
+                        
+                </div>
+                <%}%>
+            </div>
+            
+            </div>
+            
+    
+
+</div> 
+
+
+
+<!--            -->
+    </div>
+    <script src="./../scripts/gwiazdki.js"></script>
+<%- include("komponenty/footer") %> 

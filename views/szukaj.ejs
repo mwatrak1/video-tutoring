@@ -1,0 +1,69 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" style="background-color: #2496ed; color: #2b0404;">
+      
+    </div>
+  </div>
+</div>
+<div
+  class="container-fluid ogloszenia-content"
+>
+  <div class="row ogloszenia-wyszukiwarka">
+    <div class="col-10">
+      <input class="search form-control" type="search" id="wyszukiwarka" placeholder="Wyszukiwanie" />
+    </div>
+    <div class="col-2">
+      <button class="sort btn btn-primary" id="wyszukajPoStringu">
+        Wyszukaj
+      </button>
+    </div>
+  </div>
+
+  <div class="row ogloszenia-sortowanie">
+   
+    <div class="col-3">
+      <button class="sort btn btn-primary" id="sortujPoCenieMalejaco">
+        Cena malejaco
+      </button>
+    </div>
+    <div class="col-3">
+      <button class="sort btn btn-primary" id="sortujPoCenieRosnaco">
+        Cena rosnaco
+      </button>
+    </div>
+  </div>
+
+  <div class="list-group" id="wyswietlOgloszenia" style="padding: 5% 0%; background-color: #2496ed;">
+    
+  
+  </div>
+  <div class="pagenumbers" id="pagination1"></div>
+</div>
+
+<div class="modal fade" id="sendNewMessage" tabindex="-1" role="dialog" aria-labelledby="sendNewMessageTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="sendNewMessageLongTitle">Wyslij wiadomosc do korepetytora</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <input type="text" class="form-control" id="tekstWiadomosci" placeholder="Twoja wiadomosc" aria-label="Twoja wiadomosc" >
+      </div></br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" class="btn btn-primary" onclick="wyslijWiadomosc()">Wyslij</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="./scripts/ogloszenia.js"></script>
+
+<%- include("komponenty/footer") -%>

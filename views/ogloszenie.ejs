@@ -1,0 +1,129 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+<div
+  class="container-fluid"
+  style="padding: 3% 13%; background-color:#2496ed;" >
+    <% ogloszenie.forEach(profil => { %>
+    <div class="list-group-item obramowanie" style = "padding:0% 10%;padding-bottom: 2%; padding-top: 2%;">
+        <div class="row" >
+            <div class="col-sm-3">
+                <% if (profil.zdjecie == null){%>
+                        <img
+                        src="https://inzynierkanativespeakerzy.s3.eu-central-1.amazonaws.com/doge.jpg"
+                        class="pull-left photo"
+                        style="border-radius: 50%; width:150px; height:150px;" >
+                <% } else { %>
+                        <img
+                        src="https://inzynierkanativespeakerzy.s3.eu-central-1.amazonaws.com/<%=profil.zdjecie%>"
+                        class="pull-left photo"
+                        style="border-radius: 50%; width:150px; height:150px;" >    
+                <% } %>
+            </div>
+            
+                
+                <div class="list-group col-sm-6">
+                
+                    <h3><%= profil.imie%></h3><br>
+                    Znane jezyki: <%=profil.znane_jezyki %> </br>
+                    Jezyk ojczysty: <%= profil.jezyk_ojczysty %>
+                </div>
+                <div class="list-group col-sm-3">
+                    <button type="button" onclick="window.location.href='/profil/<%=profil.uzytkownik_iduzytkownik%>';" class="btn btn-success btn-more zobaczProfilPrzycisk" style="width:186.84px;">
+                        Zobacz profil &nbsp;
+                        <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                      </button>
+                </div>
+                
+        </div>
+    </div>
+
+        <div class="list-group-item obramowanie">
+            <div class="row"  style = "padding:0% 12%;">
+                <div class="col-12" style="text-align: center;">
+                <h5>O korepetytorze </h5><br>
+                    <%=profil.opis%></br>
+                    <% if (profil.film == null){%>
+                        <video class="film_promocyjny" width="480" height="360" controls>
+                            <source src="https://inzynierkanativespeakerzy.s3.eu-central-1.amazonaws.com/Waterfalls+-+47213.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video> 
+                    <% } else { %>
+                        <video class="film_promocyjny" width="480" height="360" controls>
+                            <source src="<%=profil.film%>" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video> 
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+
+        <% }); %>
+
+    <% if (dostepnosc.length > 0) { %>
+        <div class="list-group-item obramowanie">
+            <div class="row"  style = "padding:0% 12%;text-align: center;">
+                <div class="col-12">
+                <h5>Rezerwacja zajęć</h5><br>
+                <table id="harmonogram" style="color: black;">
+                    <tr>
+                      <th>Dostępna data</th>
+                      <th>Godzina od</th>
+                      <th>Godzina do</th>
+                      <th>Czas trwania zajęć</th>
+                      <th>Rezerwacja</th>
+                    </tr>
+                    <% dostepnosc.forEach(wpis => { %>
+                        <tr id="<%= wpis.idharmonogram %>">
+                        <td> <%=wpis.dostepne_dni %></td>
+                        <td> <%=wpis.godzina_od %></td>
+                        <td> <%=wpis.godzina_do %></td>
+                        <td> <%=wpis.czas_trwania_zajec %></td>
+                        <td><button class="btn btn-primary" value="<%=wpis.idharmonogram %>" data-toggle="modal" onclick="renderujTerminy(this)" data-target="#rezerwujZajeciaModal"> Rezerwuj</button></td>
+                        </tr>
+
+                    <% }) %>
+                  </table>
+
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="rezerwujZajeciaModal" tabindex="-1" role="dialog" aria-labelledby="rezerwujZajeciaTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="rezerwyjZajeciaLongTitle">Rezerwacja Zajec</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <select id="godziny_zajec">
+          
+                    </select>
+
+                    <input type="hidden" id="czas_wybranych_zajec">
+                    <input type="hidden" id="id_nauczyciela" value="<%= ogloszenie[0].idprofil %>">
+                    <input type="hidden" id="idharmonogram">
+
+                    <h5 style="text-align: center; margin-top: 2%;" id="rezerwacjaResult"></h5>
+                    
+                </div>
+                <div class="modal-footer">
+                  <button id="zamknijModal" type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                  <button type="button" class="btn btn-primary" onclick="rezerwacja()" >Wyslij</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+   
+<% } %>
+
+</div>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="./../scripts/rezerwacjaZajec.js"></script>
+
+<%- include("komponenty/footer") %> 

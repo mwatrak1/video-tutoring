@@ -1,0 +1,33 @@
+<%- include("komponenty/header") %>
+</head>
+<%- include("komponenty/nawigacja") %>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="background-color:#2496ed; color:white;">
+        <h3 style="text-align: center; padding:1%;">Wybierz kategorie językową</h3>
+      </div>
+    </div>
+</div>
+<div class="card" style="background:#2496ed;">
+<article class="card-body" style="padding-top:7%; padding-bottom: 11%;">
+    <div class="registration-form" style="max-width: 70%;">  
+    
+<div class="row" style="padding:5% 0%;">
+
+<% kategorie.forEach(kategorie =>{ %>
+
+    <div class="col-6" style="text-align: center; ">
+        <i class="fas fa-circle" style="display:inline-block;"></i>
+        <a href="/forum/<%=kategorie.idkategorie%>" style="display:inline-block;"><h3 style="display:inline-block;"><%= kategorie.nazwa_kategorii %></h3></a></div>
+ 
+
+    
+<% }) %>
+
+</div>
+</div>
+</article>
+</div>
+
+<%- include("komponenty/footer") %>   

@@ -1,0 +1,26 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+
+
+<form class="dodajOgloszenie" action="/dodaj" method="POST">
+
+    <div class="form-group col-md-6">
+        <label for="jezyk">Język</label>
+        <input  class="form-control" name="jezyk" id="jezyk"  placeholder="Wybrany język">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="cena">Cena</label>
+        <input  class="form-control" name="cena" id="cena"  placeholder="Podaj cenę za godzine">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="opis">Opis</label>
+        <textarea class="form-control" name="opis" id="opis" rows="3"></textarea>
+      </div>
+
+   <button type="submit" class="btn btn-primary dodajPrzycisk">Dodaj</button>
+</form>
+
+<%- include("komponenty/footer") %> 

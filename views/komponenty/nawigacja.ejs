@@ -1,0 +1,47 @@
+<body style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: #2496ed; font-weight: 300;">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="/" style="padding-left:13%;">Projekt</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" id="wiadomosci" style="border-right: 1px solid #bbb; border-radius: 25px;">
+            <a class="nav-link" href="/wiadomosci">Wiadomosci</a>
+          </li>
+          <li class="nav-item" style="border-right: 1px solid #bbb; border-radius: 25px;">
+            <a class="nav-link" href="/znajdzKorepetytora">Ogłoszenia</a>
+          </li>
+          <% if (logged) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/zajecia" style="border-right: 1px solid #bbb; border-radius: 25px">Zajęcia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profil" style="border-right: 1px solid #bbb; border-radius: 25px;">Mój Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/forum" style="border-right: 1px solid #bbb; border-radius: 25px;">Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/wyloguj" style="border-right: 1px solid #bbb; border-radius: 25px;">Wyloguj</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item" style="border-right: 1px solid #bbb; border-radius: 25px;">
+            <a class="nav-link" href="/rejestracja">Rejestracja</a>
+          </li>
+          <li class="nav-item" style="border-right: 1px solid #bbb; border-radius: 25px;">
+            <a class="nav-link" href="/logowanie">Logowanie</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>

@@ -1,0 +1,32 @@
+<%- include("komponenty/header") -%>
+</head>
+
+<%- include("komponenty/nawigacja") -%>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="background-color:#2496ed; color:white">
+        <h3 style="text-align: center; padding:1%;" id="idTematu" value="<%=kategorie%>">Jezyk: <%=temat[0].nazwa_kategorii%> - Forum</h3>
+      </div>
+    </div>
+</div>
+<div class="card" style="background:#2496ed;">
+    <div style="padding-left: 16%; margin-top:3%;">
+<form action="/dodajj" method="POST">
+        <button class="btn btn-primary" type="submit" name="idkategorii" value="<%=kategorie%>" style="background-color: #0055d5 !important;">Utwórz nowy temat</button>
+</form>
+</div>
+<article class="card-body" style="padding-top:3%; padding-bottom: 11%;">
+    <div class="registration-form" style="max-width: 70%; background-color: #FFF;">
+        <main>
+
+          <div class="list" style="background-color: #FFF;" id="list"></div>
+          <div class="pagenumbers" id="pagination"></div>
+        </main>
+    </div>
+</article>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="../../scripts/listaPrzewijana.js" data-bundle="plone-base"></script>
+<%- include("komponenty/footer") -%>

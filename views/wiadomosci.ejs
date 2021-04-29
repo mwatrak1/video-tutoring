@@ -1,0 +1,38 @@
+<%- include("komponenty/header") -%>
+</head>
+<%- include("komponenty/nawigacja") -%>
+
+<div id="komunikacja">
+<h3 style="padding: 3% 0% 3% 19%; text-align: center; color: white;">Moje konwersacje</h3>
+
+
+  <div class="row" id="wiadomosci">
+      <div class="col-3" style="padding-left: 7%; padding-right: 2%;">
+        <div class="list-group wiasomosci-kontakty" id="list-tab" role="tablist">
+          
+        
+        </div>
+      </div>
+      <div class="col-9">
+       
+        <div class="tab-content wiadomosciContent" id="nav-tabContent" style="background-color: aliceblue;">
+          
+        </div>
+        <div class="input-group mb-3" id="pasekWiadomosci">
+          <input type="text" class="form-control" id="trescWiadomosci" placeholder="Twoja wiadomosc" aria-label="Twoja wiadomosc" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary"  style="background-color: aliceblue;" id="wyslijWiadomosc" type="button">Wyslij</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  
+
+</div>
+    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="./scripts/wiadomosci.js"></script>
+
+<%- include("komponenty/footer") %> 

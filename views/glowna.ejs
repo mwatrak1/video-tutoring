@@ -1,0 +1,172 @@
+<%- include("komponenty/header") -%>
+  </head>
+
+
+  <body style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 300;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="/" style="padding-left:13%;">Projekt</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" style="border-right: 1px solid #bbb; border-radius: 25px;">
+            <a class="nav-link" href="/znajdzKorepetytora">Ogłoszenia</a>
+          </li>
+          <% if (logged) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/zajecia" style="border-right: 1px solid #bbb; border-radius: 25px">Zajęcia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profil" style="border-right: 1px solid #bbb; border-radius: 25px;">Mój
+                Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/forum" style="border-right: 1px solid #bbb; border-radius: 25px;">Forum</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/wyloguj" style="border-right: 1px solid #bbb; border-radius: 25px;">Wyloguj</a>
+            </li>
+            <% } else { %>
+              <li class="nav-item" style="border-right: 1px solid #bbb; border-radius: 25px;">
+                <a class="nav-link" href="/rejestracja">Rejestracja</a>
+              </li>
+              <li class="nav-item" style="border-right: 1px solid #bbb; border-radius: 25px;">
+                <a class="nav-link" href="/logowanie">Logowanie</a>
+              </li>
+              <% } %>
+        </ul>
+      </div>
+    </nav>
+
+    <body>
+
+      <div class="glowna-content">
+
+        <div class="first-section-glowna row">
+
+          <div class="top-content-glowna col">
+            <div class="glowna-top-header">Znajdź native-speakera i zacznij rozmawiać w języku obcym!</div>
+            <button class="btn btn-primary btn-lg glowna-znajdz-zajecia"
+              onclick="window.location.href='/znajdzKorepetytora';">
+              Przeglądaj zajęcia<i class="fas fa-arrow-right" style="padding-left: 4%;"></i>
+            </button>
+          </div>
+
+          <div class="col">
+            <img id="photo-online-glowna" src="/css/images/zajecia-online.jpg">
+          </div>
+
+        </div>
+
+        <div class="second-section-glowna">
+          <h3 id="functions-glowna-header" class="center">Wszystkie funkcje jakich potrzebujesz do zajęć online</h3>
+
+          <div class="functions-glowna">
+            <div class="function-glowna inline">
+              <h3 style="padding-left: 12%;">Wideokonferencja</h3>
+              <img src="/css/images/wideokonferencja.png" width="75%">
+              <h4 class="function-glowna-description">Wideokonferencja daje możliwość uczenia się języków z najlepszymi
+                nauczycielami z całego świata bez opuszczania domu!</h4>
+
+            </div>
+
+            <div class="function-glowna inline ">
+              <h3>Native-speakerzy z całego świata</h3>
+              <img src="/css/images/native.png" width="75%" style="margin-left: 10%;">
+              <h4 class="function-glowna-description">Wideokonferencja daje możliwość uczenia się języków z najlepszymi
+                nauczycielami z całego świata bez opuszczania domu!</h4>
+            </div>
+
+            <div class="function-glowna inline">
+              <h3 style="padding-left: 35%;">Forum</h3>
+              <img src="/css/images/forum.png" width="75%" style="margin-left: 10%;">
+              <h4 class="function-glowna-description">Wideokonferencja daje możliwość uczenia się języków z najlepszymi
+                nauczycielami z całego świata bez opuszczania domu!</h4>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="third-section-glowna container">
+
+          <h1 id="join-header" class="center">Dołącz do nas</h1>
+
+          <div class="join-cards row justify-content-md-center">
+
+            <div class="card inline join-card col-4">
+              <img src="/css/images/student.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Uczeń</h5>
+                <p class="card-text">Tekst</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Znajdź odpowiedniego nativespeakera</li>
+                <li class="list-group-item">Rezerwuj zajęcia w dogodnym terminie</li>
+                <li class="list-group-item">Rozmawiaj z innymi uczniami i nauczycielami na forum</li>
+              </ul>
+              <div class="card-body">
+                <a href="https://lelo.link/rejestracja" class="card-link">Dołącz jako uczeń</a>
+              </div>
+            </div>
+
+            <div class="col-1">
+              
+            </div>
+
+            <div class="card inline join-card col-4">
+              <img src="/css/images/nauczyciel.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Nauczyciel</h5>
+                <p class="card-text">Tekst</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Dodawaj ogłoszenia w dowolnym języku</li>
+                <li class="list-group-item">Twórz harmonogram dostępności zajęć</li>
+                <li class="list-group-item">Przeprowadzaj zajecia online w formie wideokonferencji</li>
+              </ul>
+              <div class="card-body">
+                <a href="https://lelo.link/rejestracja" class="card-link">Dołącz jako nauczyciel</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="fourth-section-glowna">
+          <h1 class="center opinion-header">Opinie użytkowników</h1>
+
+          <div id="opinie-karuzela" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h2 class="opinion-text">"El mejor sitio web para aprender idiomas extranjeros"</h2>
+                <h3 class="opinion-author">~Juanita</h3>
+                <img src="/css/images/juanita.jpg" class="d-block opinion-photo profile-photo-glowna" alt="...">
+              </div>
+              <div class="carousel-item">
+                <h2 class="opinion-text">"Een geweldige plek voor mensen die geïnteresseerd zijn in vreemde talen"</h2>
+                <h3 class="opinion-author">~Horacy</h3>
+                <img src="/css/images/horacy.jpg" class="d-block opinion-photo profile-photo-glowna" alt="...">
+              </div>
+              <div class="carousel-item">
+                <h2 class="opinion-text">"Najlepszy portal do nauki czasów przeszłych"</h2>
+                <h3 class="opinion-author">~Paweł</h3>
+                <img src="/css/images/pawel.jpg" class="d-block opinion-photo profile-photo-glowna" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#opinie-karuzela" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Poprzedni</span>
+            </a>
+            <a class="carousel-control-next" href="#opinie-karuzela" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Nastepny</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+      <%- include("komponenty/footer") %>

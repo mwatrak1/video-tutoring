@@ -1,0 +1,14 @@
+/*
+
+DO ZROBIENIA
+
+1. Lista przewijana numeryczna - przyda sie do ogloszen i forum
+2. dodawanie dostapnosci harmonogramu - tylko calkowite wartosci zajec
+4. Wideokonferencja
+5. rezerwacja zajec
+6. Strona tytulowa
+7. W harmonogramie pozwolic tylko na terminy min 30min i CALKOWITE TERMINY
+8. Uzytkownik nie moze rezerwowac zajec u siebie
+9. Uzytkownik nie moze sobie wystawiac opinii
+
+*/
