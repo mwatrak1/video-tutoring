@@ -11,7 +11,7 @@ html, body {
   } */
 
 .mojeOgloszenia {
-    margin: 2% 10% 2% 10%;
+    margin: 1% 10% 1% 10%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
