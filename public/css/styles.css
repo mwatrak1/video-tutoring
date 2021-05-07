@@ -352,7 +352,7 @@ nav {
     overflow: auto;
     scroll-behavior: smooth;
     height: 500px;
-    width: 80%;
+    width: 90%;
     margin: 0% 2% 2% 5%;
     
 
@@ -770,6 +770,10 @@ main .list .item {
 
 .ogloszenia-sortowanie {
     margin-left: 30%;
+}
+
+.ogloszenia-tekst {
+    padding-left: 4%;
 }
 
 .edycjaOgloszeniaPrzycisk {

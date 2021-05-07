@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="col-12" style="text-align: center;">
-                            <h5>Lista odpowiedzi</h5>
+                            <h5>Responses</h5>
                         </div>
                         <% odpowiedz.forEach(odpowiedz=>{ %>
                             <div class="col-12">
@@ -34,13 +34,13 @@
 
                                 <label>
                                     <div class="col-12" style="text-align: center;">
-                                        <h5>Odpowiedz:</h5>
+                                        <h5>Your response</h5>
                                     </div>
                                 </label>
                                 <textarea class="form-control" id="answer" cols="5" rows="3"></textarea>
                     </div>
                     <button class="btn btn-primary" style="margin-left: 45%;" id="idtematu" value="<%=temat.idtemat%>"
-                        type="submit" onclick="dodajPost()">Opublikuj</button>
+                        type="submit" onclick="dodajPost()">Publish</button>
 
                 </div>
             </article>

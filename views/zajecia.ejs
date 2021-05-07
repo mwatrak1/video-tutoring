@@ -10,12 +10,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-Tzajecia-tab" data-toggle="pill" href="#pills-Tzajecia"
                             role="tab" aria-controls="pills-Tzajecia" aria-selected="true">
-                            Przyszłe Zajęcia </a>
+                            Upcoming classes 
+                        </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" id="pills-Pzajecia-tab" data-toggle="pill" href="#pills-Pzajecia" role="tab"
-                            aria-controls="pills-Pzajecia" aria-selected="false">Zajęcia Archiwalne</a>
+                            aria-controls="pills-Pzajecia" aria-selected="false">
+                            Archival classes
+                        </a>
                     </li>
 
                 </ul>
@@ -28,7 +31,7 @@
                 aria-labelledby="pills-Tzajecia-tab">
 
                 <div class="container-fluid" style="padding: 3% 6%; background-color:#2496ed;">
-                    <h3 style="font-weight: bold; color:white;">Przyszłe zajęcia</h3>
+                    <h3 style="font-weight: bold; color:white;">Upcoming classes</h3>
                     <form class="" action="/wideokonferencja" method="POST">
 
                         <% przyszle.forEach(przyszle=> { %>
@@ -36,20 +39,20 @@
                                 style="padding:0% 10%;padding-bottom: 2%; padding-top: 2%;">
                                 <div class="row">
                                     <div class="col-3">
-                                        <h5 style="font-weight: bold;">Imie i nazwisko</h5>
+                                        <h5 style="font-weight: bold;">Teacher</h5>
                                         <h6>
                                             <%=przyszle.imie%>
                                                 <%=przyszle.nazwisko%>
                                         </h6>
                                     </div>
                                     <div class="list-group col-3">
-                                        <h5 style="font-weight: bold;">Data zajęć</h5>
+                                        <h5 style="font-weight: bold;">Date</h5>
                                         <h6>
                                             <%=przyszle.data_zajec%>
                                         </h6>
                                     </div>
                                     <div class="list-group col-3">
-                                        <h5 style="font-weight: bold;">Czas zajęć</h5>
+                                        <h5 style="font-weight: bold;">Duration</h5>
                                         <h6>
                                             <%=przyszle.czas_zajec%>
                                         </h6>
@@ -71,26 +74,26 @@
             <div class="tab-pane fade" id="pills-Pzajecia" role="tabpanel" aria-labelledby="pills-Pzajecia-tab">
 
                 <div class="container-fluid" style="padding: 3% 6%; background-color:#2496ed;">
-                    <h3 style="font-weight: bold; color:white;">Archiwalne Zajęcia</h3>
+                    <h3 style="font-weight: bold; color:white;">Archival classes</h3>
                     <% archiwalne.forEach(archiwalne=> { %>
                         <div class="list-group-item obramowanie"
                             style="padding:0% 10%;padding-bottom: 2%; padding-top: 2%;">
                             <div class="row">
                                 <div class="col-5">
-                                    <h5 style="font-weight: bold;">Imie i nazwisko prowadzącego</h5>
+                                    <h5 style="font-weight: bold;">Teacher</h5>
                                     <h6>
                                         <%= archiwalne.imie%>
                                             <%=archiwalne.nazwisko%>
                                     </h6>
                                 </div>
                                 <div class="list-group col-4">
-                                    <h5 style="font-weight: bold;">Data zajęć</h5>
+                                    <h5 style="font-weight: bold;">Date</h5>
                                     <h6>
                                         <%=archiwalne.data_zajec%>
                                     </h6>
                                 </div>
                                 <div class="list-group col-3">
-                                    <h5 style="font-weight: bold;">Czas zajęć</h5>
+                                    <h5 style="font-weight: bold;">Duration</h5>
                                     <h6>
                                         <%=archiwalne.czas_zajec%>
                                     </h6>

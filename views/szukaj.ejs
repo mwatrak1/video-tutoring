@@ -10,26 +10,29 @@
     </div>
     <div class="container-fluid ogloszenia-content">
       <div class="row ogloszenia-wyszukiwarka">
-        <div class="col-10">
-          <input class="search form-control" type="search" id="wyszukiwarka" placeholder="Wyszukiwanie" />
+        <div class="col-1">
+
+        </div>
+        <div class="col-9">
+          <input class="search form-control" type="search" id="wyszukiwarka" placeholder="Search for a language or teacher's name" />
         </div>
         <div class="col-2">
           <button class="sort btn btn-primary" id="wyszukajPoStringu">
-            Wyszukaj
+            Search
           </button>
         </div>
       </div>
 
       <div class="row ogloszenia-sortowanie">
 
-        <div class="col-3">
+        <div class="col-4">
           <button class="sort btn btn-primary" id="sortujPoCenieMalejaco">
-            Cena malejaco
+            Price descending
           </button>
         </div>
-        <div class="col-3">
+        <div class="col-4">
           <button class="sort btn btn-primary" id="sortujPoCenieRosnaco">
-            Cena rosnaco
+            Price ascending
           </button>
         </div>
       </div>
@@ -46,18 +49,18 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="sendNewMessageLongTitle">Wyslij wiadomosc do korepetytora</h5>
+            <h5 class="modal-title" id="sendNewMessageLongTitle">Send a message</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body" id="modalBody">
-            <input type="text" class="form-control" id="tekstWiadomosci" placeholder="Twoja wiadomosc"
+            <input type="text" class="form-control" id="tekstWiadomosci" placeholder="Your message"
               aria-label="Twoja wiadomosc">
           </div></br>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
-            <button type="button" class="btn btn-primary" onclick="wyslijWiadomosc()">Wyslij</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="wyslijWiadomosc()">Send</button>
           </div>
         </div>
       </div>
